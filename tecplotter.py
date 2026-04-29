@@ -88,6 +88,11 @@ def main() -> None:
             alpha=0.9,
         )
 
+    x_all = np.concatenate([zone[4].ravel() for zone in zones[:5]])
+    y_all = np.concatenate([zone[5].ravel() for zone in zones[:5]])
+    z_all = np.concatenate([zone[6].ravel() for zone in zones[:5]])
+    ax.set_box_aspect((x_all.ptp(), y_all.ptp(), z_all.ptp()))
+
     ax.set_xlabel("X")
     ax.set_ylabel("Y")
     ax.set_zlabel("Z")
